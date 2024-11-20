@@ -34,7 +34,7 @@ val contactService =
         ),
         "hexagonal-lib"
       ),
-      "com.tomshley.hexagonal" % "hexagonal-lib_3" % "0.0.19",
+      "com.tomshley.hexagonal" % "hexagonal-lib_3" % "0.0.20",
     )
     .settings(
       Compile / run / mainClass := Some("com.tomshley.www.contactnotify.main"),
