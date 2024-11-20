@@ -1,6 +1,7 @@
 package com.tomshley.www.contactnotify
 
 import com.tomshley.hexagonal.lib.kafka.util.ProducerProtoBoilerplate
+import com.typesafe.config.ConfigFactory
 import org.apache.kafka.common.serialization.{ByteArrayDeserializer, StringDeserializer}
 import org.apache.pekko.Done
 import org.apache.pekko.actor.typed.ActorSystem
@@ -14,7 +15,7 @@ import scala.concurrent.duration.*
 import scala.concurrent.{ExecutionContext, Future, Promise}
 
 object ContactEventConsumer {
-  private final val serviceName = "www-tomshley-com-contactnotify-service"
+  private final val serviceName = ConfigFactory.load().getString("service-name")
   private val publicationRecordsEventsInstance: Promise[Future[Done]] = Promise()
 
   private def consumerInstance(system: ActorSystem[?], serviceName:String, kafkaTopic:String, handler:ContactEventConsumerHandler) = {
@@ -48,7 +49,6 @@ object ContactEventConsumer {
   }
   @tailrec
   def init(system: ActorSystem[?]): Future[Done] = {
-    val publicationRecordsEventsInstantiated = publicationRecordsEventsMaybe
     publicationRecordsEventsMaybe match
       case Some(value) => value
       case None =>
