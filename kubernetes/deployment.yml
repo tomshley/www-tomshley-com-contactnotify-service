@@ -85,23 +85,6 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: "metadata.labels['app']"
-            - name: YUGABYTEDB_HOST
-              valueFrom:
-                secretKeyRef:
-                  name: yugabytedb-connection
-                  key: hostname
-            - name: YUGABYTEDB_PORT
-              value: "5433"
-            - name: YUGABYTEDB_USER
-              valueFrom:
-                secretKeyRef:
-                  name: yugabytedb-connection
-                  key: username
-            - name: YUGABYTEDB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: yugabytedb-connection
-                  key: password
             - name: KAFKA_BROKER_SERVER
               valueFrom:
                 secretKeyRef:
@@ -117,3 +100,18 @@ spec:
                 secretKeyRef:
                   name: kafka-connection
                   key: password
+            - name: TWILIO_ACCOUNT_SID
+              valueFrom:
+                secretKeyRef:
+                  name: twilio-connection
+                  key: account_sid
+            - name: TWILIO_AUTH_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: twilio-connection
+                  key: auth_token
+            - name: TWILIO_PHONE_NUMBER
+              valueFrom:
+                secretKeyRef:
+                  name: twilio-connection
+                  key: from_number

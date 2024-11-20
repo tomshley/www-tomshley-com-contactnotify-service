@@ -1,6 +1,6 @@
 package com.tomshley.www.contactnotify
 
-import com.tomshley.hexagonal.lib.kafka.util.ProducerBoilerplate
+import com.tomshley.hexagonal.lib.kafka.util.ProducerProtoBoilerplate
 import org.apache.kafka.common.serialization.{ByteArrayDeserializer, StringDeserializer}
 import org.apache.pekko.Done
 import org.apache.pekko.actor.typed.ActorSystem
