@@ -29,7 +29,7 @@ spec:
       containers:
         - name: www-tomshley-com-contactnotify-service
           # use specific image version from docker publish
-          image: registry.gitlab.com/tomshley/brands/usa/tomshleyllc/tech/www-tomshley-com-contactnotify-service/www-tomshley-com-contactnotify-service:0.0.0-18-1e7ee59a
+          image: registry.gitlab.com/tomshley/brands/usa/tomshleyllc/tech/www-tomshley-com-contactnotify-service/www-tomshley-com-contactnotify-service:0.0.1
           imagePullPolicy: IfNotPresent
           # these will need to be increased tuned for production environments!
           # Standard Akka Performance reference
@@ -115,3 +115,8 @@ spec:
                 secretKeyRef:
                   name: twilio-connection
                   key: from_number
+            - name: CONTACTNOTIFY_NUMBERS_PIPEDEL
+              valueFrom:
+                secretKeyRef:
+                  name: notify-numbers-config
+                  key: contactnotify_numbers_pipedel
