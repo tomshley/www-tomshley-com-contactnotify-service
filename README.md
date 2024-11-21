@@ -37,7 +37,6 @@ envsubst < kubernetes/connection-kafka.yml | kubectl apply -f -
 envsubst < kubernetes/connection-twilio.yml | kubectl apply -f -
 kubectl apply -f kubernetes/rbac.yml
 kubectl apply -f kubernetes/deployment.yml
-kubectl apply -f kubernetes/service.yml
 ```
 
 Tail logs
