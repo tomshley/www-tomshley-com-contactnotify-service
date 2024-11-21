@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: notify-numbers-config
+  namespace: www-tomshley-com-contactnotify-service-namespace
+data:
+  contactnotify_numbers_pipedel: $CONTACTNOTIFY_NUMBERS_PIPEDEL_BASE64

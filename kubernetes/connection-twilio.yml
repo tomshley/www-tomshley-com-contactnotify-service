@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: twilio-connection
+  namespace: www-tomshley-com-contactnotify-service-namespace
+data:
+  account_sid: $TWILIO_ACCOUNT_SID_BASE64
+  auth_token: $TWILIO_AUTH_TOKEN_BASE64
+  from_number: $TWILIO_PHONE_NUMBER_BASE64
