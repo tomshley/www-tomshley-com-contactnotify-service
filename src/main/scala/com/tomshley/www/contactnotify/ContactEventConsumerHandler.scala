@@ -30,7 +30,7 @@ class ContactEventConsumerHandler(system: ActorSystem[?], serviceName: String, k
       val inputBytes = x.value.newCodedInput()
       val event =
         typeUrl match {
-          case "www-tomshley-com-contact-service/contact.CustomerContactReceived" =>
+          case "www-tomshley-com-inboundcontact-service/inboundcontact.CustomerInboundContactReceived" =>
             proto.CustomerContactReceived.parseFrom(inputBytes)
           case _ =>
             throw new IllegalArgumentException(
